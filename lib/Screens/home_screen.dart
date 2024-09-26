@@ -33,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       appBar: AppBar(
         centerTitle: true,
         title: const Text("Api Without Model"),
@@ -48,11 +49,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 // final postData = postModelData[index];
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      userInfo(index, "Name : ",
-                          postModelData[index]["name"].toString())
-                    ],
+                  child: Material(
+                    elevation: 2,
+                    borderRadius: BorderRadius.circular(20),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        children: [
+                          userInfo(index, "Name : ",
+                              postModelData[index]["name"].toString()),
+                          userInfo(index, "Email : ",
+                              postModelData[index]["email"].toString()),
+                          userInfo(index, "City : ",
+                              postModelData[index]["address"]["city"].toString()),
+                          userInfo(index, "Street : ",
+                              postModelData[index]["address"]["street"].toString()),
+                          userInfo(index, "Phone : ",
+                              postModelData[index]["phone"].toString()),
+                          userInfo(index, "Website : ",
+                              postModelData[index]["website"].toString()),
+                        ],
+                      ),
+                    ),
                   ),
                 );
               }),

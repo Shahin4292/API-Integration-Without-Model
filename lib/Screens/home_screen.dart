@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     children: [
                       userInfo(index, "Name : ",
-                          postModelData[index]["Name"].toString()),
+                          postModelData[index]["name"].toString())
                     ],
                   ),
                 );
@@ -62,13 +62,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Row userInfo(int index, name, value) {
     return Row(
       children: [
-        const Text(
-          "name : ",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+        Text(
+          name,
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         Text(
-          value.toString(),
-          style: const TextStyle(fontSize: 18),
+          value,
+          style: const TextStyle(
+            fontSize: 22,
+          ),
         ),
       ],
     );

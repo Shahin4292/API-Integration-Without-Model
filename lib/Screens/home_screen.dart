@@ -45,14 +45,32 @@ class _HomeScreenState extends State<HomeScreen> {
               shrinkWrap: true,
               itemCount: postModelData.length,
               itemBuilder: (context, index) {
-                final postData = postModelData[index];
+                // final postData = postModelData[index];
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
-                    children: [Text(postData["name"].toString())],
+                    children: [
+                      userInfo(index, "Name : ",
+                          postModelData[index]["Name"].toString()),
+                    ],
                   ),
                 );
               }),
+    );
+  }
+
+  Row userInfo(int index, name, value) {
+    return Row(
+      children: [
+        const Text(
+          "name : ",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+        ),
+        Text(
+          value.toString(),
+          style: const TextStyle(fontSize: 18),
+        ),
+      ],
     );
   }
 }
